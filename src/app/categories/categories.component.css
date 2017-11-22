@@ -1,0 +1,8 @@
+.my-second-nav{
+  padding-top: 1rem;
+  background-color: #e9ecef;
+}
+
+.my-second-nav .nav-item .nav-link{
+  color: #343a40 !important;
+}

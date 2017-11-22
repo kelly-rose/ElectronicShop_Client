@@ -1,0 +1,97 @@
+<!-- Breadcrumb NAV -->
+<nav class="breadcrumb">
+  <a class="breadcrumb-item" (click)="goProducts()">Products</a>
+  <a class="breadcrumb-item" routerLink="products">Cate</a>
+  <span class="breadcrumb-item active">iPhone6S</span>
+</nav>
+
+<div *ngIf="product" class="container">
+  <div class='row'>
+
+    <div class='col-sm-8'>
+      <h2>{{product.title}}</h2>
+      <div>
+        <img id='img' class='img-fluid' [src]='product.image'/>
+      </div>
+
+      <p class='lead'>
+        Here is description part. </p>
+    </div>
+
+
+    <!-- Product Sidebar -->
+    <div class='col-sm-4'>
+
+      <form #f="ngForm" *ngIf="variation.length>=2">
+        <p class='lead'>
+
+        </p>
+
+        <!--<div *ngIf="!f.value.state">-->
+        <!--<h3 *ngIf="!variation[0].sale_price; else elseBlock">{{product.price}}</h3>-->
+        <!--<ng-template #elseBlock><h3 >{{variation[0].sale_price}}</h3><p class="og-price"> {{product.price}} </p></ng-template>-->
+        <!--</div>-->
+
+        <div *ngIf="f.value.state">
+          <h3 *ngIf="!(f.value.state.sale_price); else elseBlock">{{ f.value.state.price }}</h3>
+          <ng-template #elseBlock><h3>{{ f.value.state.sale_price }}</h3>
+            <p class="og-price">{{ f.value.state.price }} </p></ng-template>
+        </div>
+
+        <div>
+          <select name="state" ngModel class="form-control">
+            <option selected>Choose a item</option>
+            <option *ngFor="let data of variation" [ngValue]="data.id">
+              {{data.title}}
+            </option>
+          </select>
+        </div>
+
+        <br/>
+        <input class='form-control' type='number'  name='qty' value='1' [(ngModel)]="qty"/>
+        <br/>
+        <button id='submit-btn1' type='submit' (click)="saveCart(f.value)" class='btn btn-default'>Add to Cart1</button>
+      </form>
+
+      <form *ngIf="variation.length==1">
+        <p class='lead'>
+
+        </p>
+        <h3 *ngIf="!variation[0].sale_price; else elseBlock">{{product.price}}</h3>
+        <ng-template #elseBlock><h3>{{variation[0].sale_price}}</h3>
+          <p class="og-price"> {{product.price}} </p></ng-template>
+
+        <br/>
+        <input class='form-control' type='number' name='qty' value='1' [(ngModel)]="qty"/>
+        <br/>
+        <button id='submit-btn2' type='submit' (click)="saveCart({state:variation[0].id, qty:qty})" class='btn btn-default'>Add to Cart2</button>
+      </form>
+
+      <br/>
+      <hr/>
+      <p>
+        Share<br/>
+        <a href="#">
+          <i class="fa fa-facebook-square fa-3x"></i></a>
+        <a href="#">
+          <i class="fa fa-twitter-square fa-3x"></i></a>
+      </p>
+
+      <hr/>
+      <h4>Related Products</h4>
+
+      <div class='row'>
+        <div class='col-xs-6'>
+          <!--{% include "products/product_thumbnail.html" with product=product price="True" %}-->
+        </div>
+      </div>
+      <div class="row">
+      </div>
+
+
+    </div>
+    <!-- End Product Sidebar -->
+
+
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<!-- CHECK OUT -->
+<div class="container">
+  <br>
+  <div class='row'>
+
+    <div class='col-md-2'>
+      <form [formGroup]="searchFilterForm" novalidate (ngSubmit)="getQueryParams()">
+        <div class="form-group">
+          <label for="Search">Search</label>
+          <input formControlName="search" type="text" class="form-control" id="Search" aria-describedby="SearchHelp" placeholder="Search">
+        </div>
+        <div *ngIf="categories">
+          <div *ngFor="let data of categories; let i = index" class="form-check">
+            <label class="form-check-label">
+              <input (change)="onChange(data.slug, $event.target.checked)"  type="checkbox" class="form-check-input">{{data.title}}
+            </label>
+          </div>
+        </div>
+
+        <div class="page-header">
+          <h6>PRICE RANGES</h6>
+        </div>
+        <span>{{ searchFilterForm.value | json }}</span>
+        <!--<span>{{ someValue | json }}</span>-->
+
+        <nouislider  (ngModelChange)="onChange($event)" [connect]="true" [min]="0" [max]="600" [step]="10"
+                    [formControl]="searchFilterForm.controls.range"></nouislider>
+
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+        <button type="submit" class="btn btn-primary">Clear Filters</button>
+      </form>
+    </div>
+    <!--<pre>Form values: {{searchFilterForm.value | json}}</pre>-->
+    <!-- Product Sidebar -->
+    <div class='col-md-10'>
+      <div class="album ">
+        <div class="container">
+          <h3 class="album-head">PRODUCTS</h3>
+          <div *ngIf="products" class="row album-content">
+            <div *ngFor="let data of products" class="col-lg-4 col-md-6">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">
+
+                <div class="card-body">
+                  <h4 class="card-title">{{data.title}}</h4>
+                  <p class="card-text">{{data.price}}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <!--<div class="col-lg-4  col-md-6">-->
+            <!--<div class="card">-->
+            <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+            <!--<div class="card-body">-->
+            <!--<h4 class="card-title">Special title treatment</h4>-->
+            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-lg-4  col-md-6">-->
+            <!--<div class="card">-->
+            <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+            <!--<div class="card-body">-->
+            <!--<h4 class="card-title">Special title treatment</h4>-->
+            <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+            <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+

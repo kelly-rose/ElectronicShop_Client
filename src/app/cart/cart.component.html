@@ -1,0 +1,192 @@
+<!-- Breadcrumb NAV -->
+<nav class="breadcrumb">
+  <div class="container">
+    <h4>SHOPPING CART</h4>
+  </div>
+</nav>
+
+<div class="container">
+
+
+  <div class='row' *ngIf="cartItem">
+
+    <div class='col-sm-9'>
+
+      <div *ngFor="let data of cartItem">
+        <div class="alert" role="alert" style="border: 1px solid black">
+          <button type="button" (click)="deleteItem(data.item)" class="close" data-dismiss="alert"
+                  aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="row">
+            <div class="col-lg-4">
+              <!--356*350-->
+              <img class="img-fluid" [src]="data.image" alt="image">
+            </div>
+            <div class="col-lg-8">
+              <h4 class="alert-heading">{{data.item_title}}</h4>
+              <h6>${{data.price}} sale - $ {{data.sale_price}}</h6>
+              <hr class="cart-hr">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="input-group cart-input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary cart-btn" type="button">+</button>
+      </span>
+                    <input type="text" class="form-control _field" placeholder="Product name" aria-label="Product name"
+                           value={{data.quantity}}>
+                    <span class="input-group-btn">
+        <button class="btn btn-secondary cart-btn" type="button">-</button>
+      </span>
+                  </div>
+
+                </div>
+                <div class="col-lg-6"></div>
+                <div class="col-lg-2">
+
+                  <div class="_cart-product-total-price">${{data.line_item_total}}</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--<div class="alert" role="alert" style="border: 1px solid black">-->
+      <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+      <!--<span aria-hidden="true">&times;</span>-->
+      <!--</button>-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-4">-->
+      <!--<img class="img-fluid" src="http://via.placeholder.com/356x350" alt="image">-->
+
+      <!--</div>-->
+      <!--<div class="col-lg-8">-->
+      <!--<h4 class="alert-heading">ABO PHARMA MAGNESIUM 250 MG + VITAMIN B COMPLEX Х 30</h4>-->
+      <!--<h6>€4.76</h6>-->
+      <!--<hr class="cart-hr">-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-4">-->
+      <!--<div class="input-group cart-input-group">-->
+      <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-secondary cart-btn" type="button">+</button>-->
+      <!--</span>-->
+      <!--<input type="text" class="form-control _field" placeholder="Product name" aria-label="Product name"-->
+      <!--value="1">-->
+      <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-secondary cart-btn" type="button">-</button>-->
+      <!--</span>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--<div class="col-lg-6"></div>-->
+      <!--<div class="col-lg-2">-->
+
+      <!--<div class="_cart-product-total-price">€209.44</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="alert" role="alert" style="border: 1px solid black">-->
+      <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+      <!--<span aria-hidden="true">&times;</span>-->
+      <!--</button>-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-4">-->
+      <!--<img class="img-fluid" src="http://via.placeholder.com/356x350" alt="image">-->
+
+      <!--</div>-->
+      <!--<div class="col-lg-8">-->
+      <!--<h4 class="alert-heading">ABO PHARMA MAGNESIUM 250 MG + VITAMIN B COMPLEX Х 30</h4>-->
+      <!--<h6>€4.76</h6>-->
+      <!--<hr class="cart-hr">-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-4">-->
+      <!--<div class="input-group cart-input-group">-->
+      <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-secondary cart-btn" type="button">+</button>-->
+      <!--</span>-->
+      <!--<input type="text" class="form-control _field" placeholder="Product name" aria-label="Product name"-->
+      <!--value="1">-->
+      <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-secondary cart-btn" type="button">-</button>-->
+      <!--</span>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--<div class="col-lg-6"></div>-->
+      <!--<div class="col-lg-2">-->
+
+      <!--<div class="_cart-product-total-price">€209.44</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+
+    </div>
+
+
+    <!-- Product Sidebar -->
+    <div class='col-sm-3' *ngIf="cart_summary">
+
+
+      <h3>CART SUMMARY</h3>
+
+      <div id="cart-order-summary">
+        <p>
+          <span>Subtotal:</span><span id="sub-total">
+          {{cart_summary.subtotal}}</span>
+        </p>
+        <p>
+          <span>Shipping:</span><span>??????????</span>
+        </p>
+
+        <p>
+          <span>Tax:</span>
+          <span>${{cart_summary.tax_total}}</span>
+        </p>
+        <p class="total">
+          <span>Order Total:</span>
+          <span id="grand-total">${{cart_summary.total}}</span>
+        </p>
+
+        <div class="summary-actions">
+          <a *ngIf="us.user$ | async; else notAuth" class="btn btn-xl btn-primary checkout-btn load-next-page"
+             routerLink="/order">
+            <strong>Proceed to Checkout</strong>
+          </a>
+          <ng-template #notAuth>
+            <a class="btn btn-xl btn-primary checkout-btn load-next-page" routerLink="/checkout">
+              <strong>Proceed to Checkout</strong>
+            </a>
+          </ng-template>
+
+          <div class="cart-errors hide">
+            Error - Please review your cart
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- End Product Sidebar -->
+
+
+  </div>
+</div>
+
+
+<div class="container" *ngIf="!cart_exist">
+
+  <div class="jumbotron text-center">
+    <h1>Your Cart is Empty.</h1>
+  </div>
+
+</div>

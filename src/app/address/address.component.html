@@ -1,0 +1,234 @@
+<div class="container">
+  <br>
+  <div class='row'>
+
+    <!-- Shipping  -->
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header shipping-card-header">
+          <!--Shipping Address <a data-toggle="modal" data-target="#addShipping" class="btn btn-link plus-btn"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></a>-->
+          <!--Shipping Address <button data-toggle="modal" data-target="#addShipping" class="btn-link plus-btn"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></button>-->
+          Shipping Address <i data-toggle="modal" data-target="#addShipping" class="fa fa-plus fa-lg plus-btn" aria-hidden="true"></i>
+        </div>
+        <div class="card-body">
+          <div *ngIf="shippingAddrs" class="row">
+            <div class="col-lg-6" *ngFor="let item of shippingAddrs">
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="card-title mb-1">{{item.nick}}</h5>
+
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="item.checked">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+
+                  </div>
+                  <p class="card-text"><b>Street</b> : {{item.street}}</p>
+                  <p class="card-text"><b>Zipcode</b> : {{item.zipcode}}</p>
+                  <p class="card-text"><b>State</b> : {{item.state}}</p>
+                  <p class="card-text"><b>City</b> : {{item.city}}</p>
+
+                  <a href="#" class="card-link">Delete</a>
+                  <a href="#" class="card-link">Edit</a>
+                </div>
+              </div>
+            </div>
+            <!--<div class="col-lg-6">-->
+
+              <!--<div class="card">-->
+                <!--<div class="card-body">-->
+                  <!--<div class="d-flex w-100 justify-content-between">-->
+                    <!--<h5 class="card-title mb-1">Card title</h5>-->
+                    <!--<label class="custom-control custom-checkbox">-->
+                      <!--<input type="checkbox" class="custom-control-input">-->
+                      <!--<span class="custom-control-indicator"></span>-->
+                    <!--</label>-->
+                  <!--</div>-->
+                  <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+                    <!--card's content.</p>-->
+                  <!--<a href="#" class="card-link">Delete</a>-->
+                  <!--<a href="#" class="card-link">Edit</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Billing  -->
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header billing-card-header">
+          Billing Address <i data-toggle="modal" data-target="#addBilling" class="fa fa-plus fa-lg plus-btn" aria-hidden="true"></i>
+          <!--<button type="button" class="btn btn-link plus-btn"><i class="fa fa-plus fa-lg" aria-hidden="true"></i></button>-->
+        </div>
+        <div class="card-body">
+          <div *ngIf="shippingAddrs" class="row">
+            <div class="col-lg-6" *ngFor="let item of billingAddrs">
+
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="card-title mb-1">{{item.nick}}</h5>
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" [(ngModel)]="item.checked">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                  </div>
+                  <p class="card-text"><b>Street</b> : {{item.street}}</p>
+                  <p class="card-text"><b>Zipcode</b> : {{item.zipcode}}</p>
+                  <p class="card-text"><b>State</b> : {{item.state}}</p>
+                  <p class="card-text"><b>City</b> : {{item.city}}</p>
+                  <a href="#" class="card-link">Delete</a>
+                  <a href="#" class="card-link">Edit</a>
+                </div>
+              </div>
+            </div>
+            <!--<div class="col-lg-6">-->
+
+              <!--<div class="card">-->
+                <!--<div class="card-body">-->
+                  <!--<div class="d-flex w-100 justify-content-between">-->
+                    <!--<h5 class="card-title mb-1">Card title</h5>-->
+                    <!--<label class="custom-control custom-checkbox">-->
+                      <!--<input type="checkbox" class="custom-control-input">-->
+                      <!--<span class="custom-control-indicator"></span>-->
+                    <!--</label>-->
+                  <!--</div>-->
+                  <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+                    <!--card's content.</p>-->
+                  <!--<a href="#" class="card-link">Delete</a>-->
+                  <!--<a href="#" class="card-link">Edit</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <button type="button" (click)="saveForm()" class="btn btn-outline-primary" style="width: 100%; margin-top: 1rem">Save</button>
+    </div>
+    <div class="col-lg-4"></div>
+
+  </div>
+
+
+</div>
+
+<!--Shipping MODAL-->
+<div class="modal fade" id="addShipping" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">ADD SHIPPING ADDRESS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="shippingForm" (ngSubmit)="shippingSubmitForm()" novalidate>
+          <div class="form-group">
+            <label for="street">Address Name</label>
+            <input type="text" formControlName="nick" class="form-control" id="nick">
+          </div>
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" formControlName="street" class="form-control" id="street">
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" formControlName="city" class="form-control" id="city">
+          </div>
+
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" formControlName="state" class="form-control" id="state">
+          </div>
+
+
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input type="text" formControlName="zipcode" class="form-control" id="zipcode">
+          </div>
+
+          <!--<div class="form-check">-->
+            <!--<label class="form-check-label">-->
+              <!--<input type="checkbox" class="form-check-input">-->
+              <!--Check me out-->
+            <!--</label>-->
+          <!--</div>-->
+          <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Billing MODAL-->
+<div class="modal fade" id="addBilling" tabindex="-1" role="dialog" aria-labelledby="billinModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="billinModalLabel">ADD BILLING ADDRESS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="billingForm" (ngSubmit)="billingSubmitForm()" novalidate>
+
+          <div class="form-group">
+            <label for="street">Address Name</label>
+            <input type="text" formControlName="b_nick" class="form-control" id="b_nick">
+          </div>
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" formControlName="b_street" class="form-control" id="b_street">
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" formControlName="b_city" class="form-control" id="b_city">
+          </div>
+
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" formControlName="b_state" class="form-control" id="b_state">
+          </div>
+
+
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input type="text" formControlName="b_zipcode" class="form-control" id="b_zipcode">
+          </div>
+
+          <!--<div class="form-check">-->
+          <!--<label class="form-check-label">-->
+          <!--<input type="checkbox" class="form-check-input">-->
+          <!--Check me out-->
+          <!--</label>-->
+          <!--</div>-->
+          <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

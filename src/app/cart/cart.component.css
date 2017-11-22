@@ -1,0 +1,14 @@
+/*cart part*/
+.cart-input-group{
+  width: 160px;
+}
+.cart-input-group .cart-btn{
+  width: 50px;
+}
+._field{
+  text-align: center;
+}
+.cart-hr{
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,85 @@
+<h1 *ngIf="success">SUCCESS</h1>
+
+<!-- Address Book -->
+<div class="container">
+  <form>
+    <br>
+    <div class='row _order'>
+
+      <!-- Shipping  -->
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header order-card-header">
+            Shipping Address
+          </div>
+          <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="card-title mb-1">Card title</h5>
+            </div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a routerLink="/address" class="card-link">Change an Address</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Billing  -->
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header order-card-header">
+            Billing Address
+          </div>
+          <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="card-title mb-1">Card title</h5>
+            </div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a routerLink="/address" class="card-link">Change an Address</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Summary  -->
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header order-card-header">
+            Order Summary
+          </div>
+          <div class="card-body">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="card-title mb-1">Card title</h5>
+            </div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a routerLink="/cart" class="card-link">Go Back To Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="card">
+          <div class="card-header order-card-header">
+            Payment Method
+          </div>
+          <div class="card-body">
+
+            <div id="payment-form"></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <button type="submit" class="btn btn-outline-primary" style="width: 100%; margin-top: 1rem">Complete Order
+        </button>
+      </div>
+      <div class="col-lg-4"></div>
+
+    </div>
+
+  </form>
+</div>

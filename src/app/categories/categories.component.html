@@ -1,0 +1,18 @@
+<!--Second NAV-->
+<ul *ngIf="categories" class="my-second-nav nav justify-content-center fixed-top" style="z-index: 20; padding-top: 64px">
+  <li *ngFor="let data of categories" class="nav-item">
+    <a class="nav-link " [routerLink]="['/products',data.slug]">{{data.title}}</a>
+  </li>
+
+  <!--<li class="nav-item dropdown">-->
+  <!--<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"-->
+  <!--aria-haspopup="true" aria-expanded="false">-->
+  <!--Dropdown link-->
+  <!--</a>-->
+  <!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+  <!--<a class="dropdown-item" href="#">Action</a>-->
+  <!--<a class="dropdown-item" href="#">Another action</a>-->
+  <!--<a class="dropdown-item" href="#">Something else here</a>-->
+  <!--</div>-->
+  <!--</li>-->
+</ul>

@@ -1,0 +1,155 @@
+<div class="album" style="margin-top: 2rem">
+  <div class="container">
+    <h3 class="album-head">ALL</h3>
+
+    <div *ngIf="products" class="row album-content">
+      <div *ngFor="let product of products" class="col-sm-6 col-lg-3">
+        <div class="card" [routerLink]="['/product',product.id]">
+          <!--http://via.placeholder.com/356x280-->
+          <img class="card-img-top" [src]="product.image" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{product.title}}</h4>
+            <p class="card-text">{{product.price}}</p>
+            <a [routerLink]="['/product',product.id]" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card">-->
+      <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+      <!--<div class="card-body">-->
+      <!--<h4 class="card-title">Special title treatment</h4>-->
+      <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+      <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+    </div>
+    <!--<div class="row album-content">-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+    <!--<div class="card">-->
+    <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+    <!--<div class="card-body">-->
+    <!--<h4 class="card-title">Special title treatment</h4>-->
+    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+    <!--<div class="card">-->
+    <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+    <!--<div class="card-body">-->
+    <!--<h4 class="card-title">Special title treatment</h4>-->
+    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+    <!--<div class="card">-->
+    <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+    <!--<div class="card-body">-->
+    <!--<h4 class="card-title">Special title treatment</h4>-->
+    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+    <!--<div class="card">-->
+    <!--<img class="card-img-top" src="http://via.placeholder.com/356x280" alt="Card image cap">-->
+
+    <!--<div class="card-body">-->
+    <!--<h4 class="card-title">Special title treatment</h4>-->
+    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+  </div>
+</div>
+
